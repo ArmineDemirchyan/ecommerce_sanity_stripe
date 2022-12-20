@@ -1,8 +1,14 @@
 import React from 'react'
-
+import { AiFillGithub,AiFillLinkedin } from 'react-icons/ai'
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='footer-container'>
+      <p>2022 .ARM Headphones All rights reserved</p>
+      <p className="icons">
+        <AiFillGithub/>
+        <AiFillLinkedin/>
+      </p>
+    </div>
   )
 }
 
