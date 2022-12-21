@@ -2,7 +2,6 @@ import Stripe from "stripe";
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 export default async function handler(req, res) {
-  console.log(req.body.cartItems)
   if (req.method === "POST") {
     try {
       const params = {
@@ -40,8 +39,8 @@ export default async function handler(req, res) {
         }),
         
         mode: "payment",
-        success_url: `${req.headers.origin}/?success=true`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/canceled`,
       };
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);
